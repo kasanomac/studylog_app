@@ -1,0 +1,33 @@
+<h1 class="titile">勉強時間を記録する</h1>
+
+<%= render "form", studytime: @studytime %>
+
+<br>
+
+<div class="action">
+  <%= link_to studytimes_path, class:"btn btn_27", id:"goto-top" do  %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+      <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
+    </svg>
+    戻る
+  <% end %>
+</div>
+
+
+<!--def index
+    @studytimes = Studytime.all.order(created_at: :desc).page(params[:page]).per(12)
+    @calc_studytimes = Studytime.all.order(created_at: :desc)
+    @today_studytimes = @calc_studytimes.today
+    if user_signed_in?
+      #今日の勉強時間の"時間"と"分"の合計をそれぞれ取得し計算する
+      @today_studytime_hours = @today_studytimes.where(user_id: current_user.id).sum(:studytime_hours)
+      @today_studytime_minutes = @today_studytimes.where(user_id: current_user.id).sum(:studytime_minutes)
+      @todays_total_studytime_hours = @today_studytime_hours + (@today_studytime_minutes / 60)
+      @todays_total_studytime_minutes = @today_studytime_minutes % 60
+      #今までの勉強時間の"時間"と"分"の合計をそれぞれ取得し計算する
+      @all_studytime_hours = @calc_studytimes.where(user_id: current_user.id).sum(:studytime_hours)
+      @all_studytime_minutes = @calc_studytimes.where(user_id: current_user.id).sum(:studytime_minutes)
+      @total_all_studytime_hours = @all_studytime_hours + (@all_studytime_minutes / 60)
+      @total_all_studytime_minutes = @all_studytime_minutes % 60
+    end
+  end-->

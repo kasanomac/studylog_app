@@ -1,0 +1,4 @@
+$(function() {
+    $("#studytime").jscroll(
+)
+});

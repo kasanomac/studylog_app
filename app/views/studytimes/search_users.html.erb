@@ -1,0 +1,24 @@
+<%= search_form_for @q, url: search_users_studytimes_path, method: :get do |f| %>
+  <div class="search-user-field">
+    <%= f.label :name_cont, "ユーザーを検索" %>
+    <%= f.search_field :name_cont %>
+  </div>
+  <div class="search-btn">
+    <%= f.submit '検索', class:"btn btn-outline-info" %>
+  </div>
+<% end %>
+
+<div class="centered-table-container">
+  <table class="centered-table">
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td class="user-info">
+            <%= image_tag(user.avatar_url || 'icon_user_1.png', class: "avatar") %>
+            <span class="user-name"><%= link_to user.name, user_studytime_path(user_name: user.name) %></span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

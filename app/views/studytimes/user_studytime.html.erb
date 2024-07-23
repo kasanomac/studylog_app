@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+
+
+  <% if @user.avatar? %>
+    <%= image_tag @user.avatar.url, class: "user-avatar-profile" %>
+  <% else %>
+    <%= image_tag 'icon_user_1.png', class: "user-avatar-profile" %> 
+  <% end %>
+  <p class="index_user_name"><%= @user.name %>さんの勉強記録</p>
+<div class="index_total_studytime">
+    <p>今日の勉強時間：<%= @todays_total_studytime_hours %>時間<%= @todays_total_studytime_minutes %>分</p>
+    <p>今までの勉強時間：<%= @total_all_studytime_hours %>時間<%= @total_all_studytime_minutes %>分</p>
+</div>
+
+
+
+
+<div id="studytimes">
+    <% @studytimes.each do |studytime| %>
+      <% if studytime.user_id  == @user.id %>
+        <div class="g-col-6">
+          <%= render studytime %>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+<footer class="pagination-container">
+  <%= paginate @studytimes %>
+</footer>

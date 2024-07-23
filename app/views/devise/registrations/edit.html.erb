@@ -1,0 +1,57 @@
+<h2>プロフィールを編集</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :プロフィール写真 %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %> <i>(変更しない場合は空白のままにしてください。)</i><br />
+    <%= f.text_field :name, autocomplete: "new-name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(変更しない場合は空白のままにしてください。)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <!--<div class="field">
+    <%= f.label :current_password %> <i>(変更を確認するために、現在のパスワードが必要です。)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>-->
+
+  <div class="actions">
+    <%= f.submit "更新する", class:"btn btn-outline-info" %>
+  </div>
+<% end %>
+
+<div><%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除しても良いですか？", turbo_confirm: "本当に削除しても良いですか？" }, method: :delete, class:"btn btn-outline-danger" %></div>
+
+<!--<%= link_to "戻る", :back, class:"btn btn_27" %>-->
+<%= link_to studytimes_path, class:"btn btn_27", id: "back_to_top" do %>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+    <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
+  </svg>
+  トップへ戻る
+<% end %>

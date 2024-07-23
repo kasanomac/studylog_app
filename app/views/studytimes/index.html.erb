@@ -1,0 +1,58 @@
+<p style="color: green"><%= notice %></p>
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+
+
+
+<% if user_signed_in? %>
+    <% if current_user.avatar? %>
+      <%= image_tag current_user.avatar.url, class: "avatar-profile" %>
+    <% else %>
+      <%= image_tag 'icon_user_1.png', class: "avatar-profile" %> 
+    <% end %>
+    <p class="index_user_name"><%= current_user.name %>さん</p>
+  <div class="index_total_studytime">
+    <p>今日の勉強時間：<%= @todays_total_studytime_hours %>時間<%= @todays_total_studytime_minutes %>分</p>
+    <p>今までの勉強時間：<%= @total_all_studytime_hours %>時間<%= @total_all_studytime_minutes %>分</p>
+  </div>
+
+  <p><%= link_to new_studytime_path, class:"btn btn_27", id: "index_create_studytime" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+      </svg>
+      記録する
+    <% end %>
+  </p>
+
+  
+  
+  <div class="logout">
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn_27" %>
+  </div>
+  <%= link_to "プロフィールを編集", edit_user_registration_path, class:"btn btn_27" %>
+
+  <%= link_to "検索", search_users_studytimes_path, class:"btn btn_27" %>
+
+  <div id="studytimes">
+    <% @studytimes.each do |studytime| %>
+      <% if studytime.user_id  == current_user.id %>
+        <div class="g-col-6">
+          <%= render studytime %>
+          <p><%= link_to "記録の詳細", studytime, class: "btn_index_detail" %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <footer class="pagination-container">
+    <%= paginate @studytimes %>
+  </footer>
+<% else %>
+  <h1 class="title">ようこそStudyLogへ!</h1>
+  <h3>勉強時間を記録するにはログインが必要です！</h3>
+  <%= link_to "ログイン画面へ", "/users/sign_in", class:"btn btn_27" %>
+<% end %>
+
+
+
+
+  

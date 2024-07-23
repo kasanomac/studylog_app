@@ -1,0 +1,292 @@
+.g-col-6{
+padding: 10px;
+border: 2px solid #c4b2a1;
+border-radius: 10px;
+background-color: #101614;
+}
+
+#studytimes{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-auto-rows: minmax (80px, auto);
+    column-gap: 10px;
+    row-gap: 1em;
+    padding-top:5px;
+}
+
+.title{
+    text-align: center;
+}
+
+.show-studytimes{
+   padding-left: 450px;
+   bottom: 60%;
+
+
+}
+
+.image{
+    width: 250px;
+    height: auto;
+ }
+
+ .image-position{
+    display: flex;
+    margin-left: 450px;
+    padding-bottom: 30px;
+    
+ }
+
+ .show-created_at{
+    font-size: 30px;
+    top: 5px;
+ }
+ 
+
+.btn-position{
+   margin-left: 400px;
+   margin-top: 80px;
+
+}
+
+a.btn_27 {
+	text-align: center;
+	width: 300px;
+   height: 60px;
+	margin: 10px;
+	padding: 17px ;
+	color: #fff;
+	position: relative;
+   border: solid 1px;
+	transition: 0.3s ease-in-out;
+}
+
+a.btn_index_detail{
+   text-align: center;
+	width: 40px;
+   height: 60px;
+	
+	padding: 3px ;
+	
+	position: relative;
+   
+	transition: 0.3s ease-in-out;
+}
+
+a.btn_27:hover, a.btn_index_detail:hover {
+    background: #000;
+    color: #0f969c;
+}
+
+a.btn_27:before, a.btn_27:after, a.btn_index_detail:before, a.btn_index_detail:after {
+  box-sizing: inherit;
+  content: "";
+  position: absolute;
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+}
+
+a.btn_27:before, a.btn_index_detail:before {
+  top: 0;
+  left: 0;
+}
+
+a.btn_27:after, a.btn_index_detail:after {
+  bottom: 0;
+  right: 0;
+}
+
+a.btn_27:hover:before, a.btn_27:hover:after, a.btn_index_detail:hover:before, a.btn_index_detail:hover:after {
+  width: 100%;
+  height: 100%;
+}
+
+a.btn_27:hover:before, a.btn_index_detail:before {
+  border-top-color: #0f969c;
+  border-right-color: #0f969c;
+  transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+}
+
+a.btn_27:hover:after, a.btn_index_detail:after {
+  border-bottom-color: #0f969c;
+  border-left-color: #0f969c;
+  transition: border-color 0s ease-out 0.2s, width 0.15s ease-out 0.2s, height 0.15s ease-out 0.3s;
+}
+
+#index_create_studytime{
+   margin-left: 580px;
+}
+
+ #create_memo{
+   background-color: #08191a;
+   color: #f6fbf7; 
+   border: 1px solid #ccc; 
+   height: 100px;
+ }
+ 
+ 
+
+ .index_user_name{
+   text-align: center;
+   margin-bottom: 10px;
+   margin-left: 50px;
+   padding-top: 50px;
+   font-size: 40px;
+ }
+
+ .index_total_studytime{
+   text-align: center;
+   margin-top: 20px;
+   font-size: 20px;
+ }
+
+ #show_delete_position{
+   
+   margin-left: 255px;
+ }
+ 
+
+.form-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh; 
+ }
+ 
+ 
+ form {
+   width: 100%;
+   max-width: 600px; 
+   margin: 0 auto; 
+   margin-bottom: 200px;
+   padding: 20px;
+   border: 1px solid #ccc;
+   border-radius: 10px;
+   background-color: #2b3445;
+ }
+ 
+ .form-group {
+   margin-bottom: 15px;
+   
+ }
+ 
+ .form-group label {
+   display: block;
+   margin-bottom: 5px;
+ }
+ 
+ .form-control {
+   width: 100%;
+   padding: 10px;
+   box-sizing: border-box;
+ }
+ 
+ .action{
+   text-align: center; 
+
+ }
+
+ #goto-top{
+   margin: 0 auto;
+   bottom: 340px;
+ }
+
+ #goto-show{
+   left: 570px;
+   bottom: 340px;
+ }
+
+ .pagination-container {
+   position: sticky;
+   top: 100vh;
+   width: 100%;
+   text-align: center;
+   padding: 10px 0;
+   margin-top: 10px;
+ }
+ 
+ .pagination-container a {
+   color: #ffffff; /* リンクの文字色も白に変更 */
+   
+ }
+
+ .pagination-container .page-item.active .page-link {
+   background-color: #ffffff;
+   color: #000000; 
+   
+ }
+ 
+ /* ボックス内の要素の背景色を黒に変更 */
+ .pagination-container .page-item,
+ .pagination-container .page-item .page-link {
+   background-color: #101916;
+   color: #ffffff;
+ }
+
+ .avatar-profile {
+   border-radius: 50%; 
+   width: 200px; 
+   height: 200px;
+   object-fit: cover; 
+   position: absolute;
+   top: 100px;
+   left: 400px;
+ }
+
+ .page-link{
+   left: 650px;
+ }
+
+ .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px; 
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  margin-left: 10px; 
+}
+
+.centered-table-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.centered-table {
+  margin: 0 auto;
+  width: 80%; 
+  border-collapse: collapse;
+}
+
+.centered-table th, .centered-table td {
+  text-align: center; 
+  padding: 10px;
+}
+
+.search-btn{
+  text-align: center;
+  margin-top: 30px;
+}
+ 
+.search-user-field{
+  margin-left: 70px;
+}
+
+.user-avatar-profile{
+   border-radius: 50%; 
+   width: 200px; 
+   height: 200px;
+   object-fit: cover; 
+   position: absolute;
+   top: 100px;
+   left: 350px;
+}

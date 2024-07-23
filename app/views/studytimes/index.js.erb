@@ -1,0 +1,5 @@
+document.querySelector('#studytimes').insertAdjacentHTML('beforeend', '<%= j render @studytimes %>');
+if (document.querySelector('#pagination')) {
+  document.querySelector('#pagination').innerHTML = '<%= j paginate @studytimes %>';
+}
+

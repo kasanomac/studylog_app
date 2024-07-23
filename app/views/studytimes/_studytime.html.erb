@@ -1,0 +1,22 @@
+<div id="<%= dom_id studytime %>">
+
+  <p class="show-created_at"><%= studytime.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
+  
+  <p>
+    <strong>勉強時間</strong>
+    <%= studytime.studytime_hours %>
+    <strong>時間</strong>
+    <%= studytime.studytime_minutes %>
+    <strong>分</strong>
+  </p>
+
+  <p>
+    <strong>メモ</strong> 
+    <% unless current_page?(action: 'index')%>
+      <%= studytime.memo %>
+    <% else %>
+      <%= studytime.memo.truncate(10, omission: '...') %>
+    <% end %>
+  </p>
+
+</div>
