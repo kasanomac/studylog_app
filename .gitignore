@@ -36,3 +36,5 @@
 
 # .gitignoreへ追加
 /public/uploads
+
+.DS_Store
