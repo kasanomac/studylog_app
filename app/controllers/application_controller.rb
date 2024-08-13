@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :set_current_user
+    helper_method :log_in
 
     def after_sign_in_path_for(resource)
         studytimes_path
@@ -8,6 +9,11 @@ class ApplicationController < ActionController::Base
 
     def after_sign_out_path_for(resource)
         new_user_session_path
+    end
+
+        # ログイン
+    def log_in(user)
+        session[:user_id] = user.id
     end
 
     def set_current_user

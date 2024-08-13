@@ -24,4 +24,16 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  def guest_login
+    if current_user
+      redirect_to user_path(current_user), alert: "すでにログインしています"  # ログインしている場合はゲストユーザーを作成しない
+    else
+      user = User.guest_login
+      sign_in user
+      redirect_to studytimes_path(user), notice: "ゲストとしてログインしました"
+    end
+  end
+
+  skip_before_action :verify_authenticity_token
 end

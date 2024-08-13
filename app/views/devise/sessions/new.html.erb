@@ -21,6 +21,10 @@
   <div class="actions">
     <%= f.submit "ログイン", class: 'btn btn-primary', id: 'session_login' %>
   </div>
+
+  <%= link_to "ゲストユーザーとして利用する", users_guest_login_path, class: 'btn btn-primary', id: 'session_guest_login' %>
+
 <% end %>
+
 
 <%= render "devise/shared/links" %>

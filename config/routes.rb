@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    sessions: "users/sessions",
   }
 
   resources :studytimes do
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
+    get "/users/guest_login", to: "users/sessions#guest_login"
   end
 
   get "up" => "rails/health#show", as: :rails_health_check

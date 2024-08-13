@@ -8,7 +8,7 @@
     <% if current_user.avatar? %>
       <%= image_tag current_user.avatar.url, class: "avatar-profile" %>
     <% else %>
-      <%= image_tag 'icon_user_1.png', class: "avatar-profile" %> 
+      <%= image_tag '/assets/icon_user_1.png', class: "avatar-profile" %> 
     <% end %>
     <p class="index_user_name"><%= current_user.name %>さん</p>
   <div class="index_total_studytime">

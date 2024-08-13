@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  belongs_to :user, optional: true
+
+  before_create :set_user_id, :set_user_email
   mount_uploader :avatar, AvatarUploader
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -29,10 +31,30 @@ class User < ApplicationRecord
     avatar.present? ? avatar.url : 'icon_user_1.png'
   end
 
-  validates :name,                            presence: true
-  validates :password,                        presence: true, on: :create, length: { minimum: 6 } #文字数の正規表現
-  validates :password_confirmation,           presence: true, on: :create
-  
-  
-        
+  def set_user_id
+    while self.id.blank? || User.find_by(id: self.id).present? do
+      self.id = SecureRandom.base58
+    end
+  end
+
+  def set_user_email
+    while self.email.blank? || User.find_by(email: self.email).present? do
+      random_string = SecureRandom.base58
+      self.email = "#{random_string}@example.com"
+    end
+  end
+
+  def self.guest_login
+    random_pass = SecureRandom.base36
+    random_email = SecureRandom.base58
+    create!(name: "ゲストユーザー",
+            email: "#{random_email}@example.com",
+            password: random_pass,
+            password_confirmation: random_pass,
+            guest: true)
+  end
+
+  validates :name, presence: true
+  validates :password, presence: true, on: :create, length: { minimum: 6 }
+  validates :password_confirmation, presence: true, on: :create
 end
