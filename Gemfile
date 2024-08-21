@@ -9,7 +9,7 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+gem "sqlite3", "~> 1.4", group: :development
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -45,10 +45,9 @@ gem "devise"
 
 gem 'ransack'
 
-gem 'pg', '~>1.5.6'
+gem 'pg', '~>1.5.6', group: :production
 
-
-
+gem "dotenv-rails"
 
 
 gem 'rails-i18n'
@@ -99,3 +98,5 @@ group :test do
   gem "faker"
   gem 'database_cleaner-active_record'
 end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
